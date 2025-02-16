@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   helper_func.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:21:05 by taha              #+#    #+#             */
-/*   Updated: 2025/02/09 00:31:12 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/16 01:20:31 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <string.h>
 
 void	ft_putstr_fd(char *s, int fd)
 {

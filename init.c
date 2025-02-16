@@ -3,20 +3,91 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taha <taha@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:31:33 by taha              #+#    #+#             */
-/*   Updated: 2025/02/09 00:33:48 by taha             ###   ########.fr       */
+/*   Updated: 2025/02/16 05:00:18 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    convert_to_num
-initial(t_argus *argus)
+void	ft_free_argus(t_argus *argus)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    convert_to_num(argus->argus);
+	i = 0;
+	if (argus->argus)
+	{
+		while (i < argus->a_len && argus->argus[i])
+		{
+			free(argus->argus[i]);
+			argus->argus[i] = NULL;
+			i++;
+		}
+		free(argus->argus);
+		argus->argus = NULL;
+	}
+	if (argus->stack_a)
+	{
+		free(argus->stack_a);
+		argus->stack_a = NULL;
+	}
+	if (argus->s)
+	{
+		free(argus->s);
+		argus->s = NULL;
+	}
+}
+
+void	s_convert(t_argus *argus)
+{
+	int	i;
+
+	i = 0;
+	while (argus->argus[i])
+		i++;
+	argus->a_len = i;
+	argus->stack_a = (int *)malloc(sizeof(int) * i);
+	if (!argus->stack_a)
+	{
+		ft_putstr_fd("Failed to allocate\n", 2);
+		ft_free_argus(argus);
+		exit(1);
+	}
+	i = 0;
+	while (argus->argus[i])
+	{
+		argus->stack_a[i] = ft_atoi(argus->argus[i]);
+		i++;
+	}
+}
+
+int	s_check_repeat(t_argus *argus)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < argus->a_len)
+	{
+		j = i + 1;
+		while (j < argus->a_len)
+		{
+			if (argus->stack_a[i] == argus->stack_a[j])
+			{
+				ft_free_argus(argus);
+				return (ft_putstr_fd("Error\n", 1), 1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+void	start_sorting(t_argus *argus)
+{
+	if (argus->a_len <= 2)
+		two_sort(argus, argus->a_len);
 }
