@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:49:13 by taha              #+#    #+#             */
-/*   Updated: 2025/02/16 05:05:56 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/02/16 23:27:51 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,6 @@ char	*ft_strjoin(char *s1, char *s2);
 void	start_sorting(t_argus *argus);
 void	two_sort(t_argus *argus, int s);
 void	sa(t_argus *argus);
+void	ra(t_argus *argus);
+void	rra(t_argus *argus);
 #endif
