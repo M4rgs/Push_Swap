@@ -34,10 +34,8 @@ static void	check_args_and_ini_argus(char *str, t_argus *argus)
 		exit(1);
 	}
 	temp = ft_strjoin(argus->s, str);
-	free(argus->s);
 	argus->s = temp;
 	temp = ft_strjoin(argus->s, " ");
-	free(argus->s);
 	argus->s = temp;
 	if (!argus->s)
 	{
@@ -76,6 +74,7 @@ int	main(int ac, char **av)
 		if (!argus.argus)
 			return (ft_putstr_fd("Error\n", 2), ft_free_argus(&argus), 1);
 		parsin(&argus);
-		//start_sorting(&argus);
+		start_sorting(&argus);
+		ft_free_argus(&argus);
 	}
 }
