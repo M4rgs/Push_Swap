@@ -25,3 +25,8 @@ fclean:	clean
 	$(RM) $(NAME)
 
 re:	fclean all
+
+git:
+	git add .
+	git commit -m "pshshw"
+	git push
