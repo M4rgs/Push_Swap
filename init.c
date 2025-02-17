@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:31:33 by taha              #+#    #+#             */
-/*   Updated: 2025/02/17 02:28:49 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/02/17 03:36:07 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,6 @@ void	start_sorting(t_argus *argus)
 		two_sort(argus, argus->a_len);
 	if (argus->a_len <= 3)
 		two_or_three_sort(argus, argus->a_len);
+	if (argus->a_len <= 5)
+		five_sort(argus, argus->a_len);
 }
