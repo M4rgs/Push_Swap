@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 04:46:47 by tamounir          #+#    #+#             */
-/*   Updated: 2025/02/16 23:28:05 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/02/17 03:01:36 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,32 @@ void	ra(t_argus *argus)
 		}
 		argus->stack_a[argus->a_len - 1] = f;
 		ft_putstr_fd("ra\n", 1);
+	}
+}
+
+void	pa(t_argus *argus)
+{
+	int	i;
+	int	t;
+
+	i = 0;
+	if (argus->b_len != 0)
+	{
+		t = argus->stack_b[0];
+		while (i < argus->b_len - 1)
+		{
+			argus->stack_b[i] = argus->stack_b[i + 1];
+			i++;
+		}
+		i = argus->a_len;
+		while (i > 0)
+		{
+			argus->stack_a[i] = argus->stack_a[i - 1];
+			i--;
+		}
+		argus->stack_a[0] = t;
+		ft_putstr_fd("pa\n", 1);
+		argus->a_len += 1;
+		argus->b_len -= 1;
 	}
 }

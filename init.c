@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:31:33 by taha              #+#    #+#             */
-/*   Updated: 2025/02/16 05:31:22 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/02/17 02:28:49 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,18 @@ void	ft_free_argus(t_argus *argus)
 	{
 		while (i < argus->a_len && argus->argus[i])
 		{
-			free(argus->argus[i]);
-			argus->argus[i] = NULL;
+			(free(argus->argus[i]), argus->argus[i] = NULL);
 			i++;
 		}
 		free(argus->argus);
 		argus->argus = NULL;
 	}
+	if (argus->stack_b)
+		(free(argus->stack_b), argus->stack_b = NULL);
 	if (argus->stack_a)
-	{
-		free(argus->stack_a);
-		argus->stack_a = NULL;
-	}
+		(free(argus->stack_a), argus->stack_a = NULL);
 	if (argus->s)
-	{
-		free(argus->s);
-		argus->s = NULL;
-	}
+		(free(argus->s), argus->s = NULL);
 }
 
 void	s_convert(t_argus *argus)
@@ -48,8 +43,10 @@ void	s_convert(t_argus *argus)
 	while (argus->argus[i])
 		i++;
 	argus->a_len = i;
+	argus->b_len = i;
 	argus->stack_a = (int *)malloc(sizeof(int) * i);
-	if (!argus->stack_a)
+	argus->stack_b = (int *)malloc(sizeof(int) * i);
+	if (!argus->stack_a || !argus->stack_b)
 	{
 		ft_putstr_fd("Failed to allocate\n", 2);
 		ft_free_argus(argus);
@@ -90,4 +87,6 @@ void	start_sorting(t_argus *argus)
 {
 	if (argus->a_len <= 2)
 		two_sort(argus, argus->a_len);
+	if (argus->a_len <= 3)
+		two_or_three_sort(argus, argus->a_len);
 }

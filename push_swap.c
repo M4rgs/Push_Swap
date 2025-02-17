@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	init_strct(t_argus *arg)
+static void	init_strct(t_argus *arg)
 {
 	arg->a_len = 0;
 	arg->b_len = 0;
@@ -44,7 +44,7 @@ static void	check_args_and_ini_argus(char *str, t_argus *argus)
 	}
 }
 
-static void	parsin(t_argus *argus)
+static void	init(t_argus *argus)
 {
 	s_convert(argus);
 	if (s_check_repeat(argus) == 1)
@@ -73,7 +73,7 @@ int	main(int ac, char **av)
 		argus.argus = ft_split(argus.s, ' ');
 		if (!argus.argus)
 			return (ft_putstr_fd("Error\n", 2), ft_free_argus(&argus), 1);
-		parsin(&argus);
+		init(&argus);
 		start_sorting(&argus);
 		ft_free_argus(&argus);
 	}
