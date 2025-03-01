@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 04:49:24 by tamounir          #+#    #+#             */
-/*   Updated: 2025/02/17 05:47:58 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/02/28 04:01:01 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,7 @@ void	three_sort(t_argus *argus)
 void	two_or_three_sort(t_argus *argus, int s)
 {
 	if (s == 2)
-	{
-		if (argus->stack_a[0] > argus->stack_a[1])
-			sa(argus);
-	}
+		two_sort(argus, s);
 	else if (s == 3)
 		three_sort(argus);
 	else

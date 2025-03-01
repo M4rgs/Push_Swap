@@ -65,6 +65,7 @@ int	main(int ac, char **av)
 			if (av[i][0] == '\0')
 			{
 				ft_putstr_fd("Error\n", 2);
+				ft_free_argus(&argus);
 				exit(1);
 			}
 			check_args_and_ini_argus(av[i], &argus);
