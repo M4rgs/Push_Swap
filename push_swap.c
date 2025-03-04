@@ -12,12 +12,15 @@
 
 #include "push_swap.h"
 
-static void	init_strct(t_argus *arg)
+static void	init_strct(t_argus *argus)
 {
-	arg->a_len = 0;
-	arg->b_len = 0;
-	arg->argus = NULL;
-	arg->s = NULL;
+	argus->a_len = 0;
+	argus->b_len = 0;
+	argus->argus = NULL;
+	argus->s = NULL;
+	argus->stack_a = NULL;
+	argus->stack_b = NULL;
+	argus->median = 0;
 }
 
 static void	check_args_and_ini_argus(char *str, t_argus *argus)

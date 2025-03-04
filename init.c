@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:31:33 by taha              #+#    #+#             */
-/*   Updated: 2025/02/23 04:44:25 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/04 00:20:51 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void	s_convert(t_argus *argus)
 	while (argus->argus[i])
 		i++;
 	argus->a_len = i;
-	argus->b_len = i;
 	if (argus->a_len <= 1)
 	{
-		ft_putstr_fd("ERROR", 2);
+		ft_putstr_fd("Error\n", 2);
+		ft_free_argus(argus);
 		exit(1);
 	}
 	argus->stack_a = (int *)malloc(sizeof(int) * i);
@@ -57,12 +57,9 @@ void	s_convert(t_argus *argus)
 		ft_free_argus(argus);
 		exit(1);
 	}
-	i = 0;
-	while (argus->argus[i])
-	{
+	i = -1;
+	while (argus->argus[++i])
 		argus->stack_a[i] = ft_atoi(argus->argus[i], argus);
-		i++;
-	}
 }
 
 int	s_check_repeat(t_argus *argus)
@@ -90,9 +87,9 @@ int	s_check_repeat(t_argus *argus)
 
 void	start_sorting(t_argus *argus)
 {
-	if (argus->a_len <= 2)
+	if (argus->a_len == 2)
 		two_sort(argus, argus->a_len);
-	if (argus->a_len <= 3)
+	if (argus->a_len == 3)
 		two_or_three_sort(argus, argus->a_len);
 	if (argus->a_len <= 5)
 		five_sort(argus, argus->a_len);

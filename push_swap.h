@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:49:13 by taha              #+#    #+#             */
-/*   Updated: 2025/02/22 21:34:28 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/04 00:15:41 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct s_argus
 {
@@ -29,7 +30,7 @@ typedef struct s_argus
 
 char	**ft_split(const char *s, char c);
 void	ft_putstr_fd(char *s, int fd);
-int	ft_atoi(char *s, t_argus *argus);
+int		ft_atoi(char *s, t_argus *argus);
 void	s_convert(t_argus *argus);
 int		s_check_repeat(t_argus *argus);
 void	ft_free_argus(t_argus *argus);

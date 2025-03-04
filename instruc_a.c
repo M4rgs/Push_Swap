@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 04:46:47 by tamounir          #+#    #+#             */
-/*   Updated: 2025/02/17 03:01:36 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/04 00:09:51 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	rra(t_argus *argus)
 
 	if (argus->a_len > 1)
 	{
-		i = argus->a_len;
+		i = argus->a_len - 1;
 		l = argus->stack_a[argus->a_len - 1];
 		while (i > 0)
 		{
@@ -74,7 +74,7 @@ void	pa(t_argus *argus)
 			argus->stack_b[i] = argus->stack_b[i + 1];
 			i++;
 		}
-		i = argus->a_len;
+		i = argus->a_len - 1;
 		while (i > 0)
 		{
 			argus->stack_a[i] = argus->stack_a[i - 1];

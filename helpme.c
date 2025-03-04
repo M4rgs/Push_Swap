@@ -6,12 +6,12 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 01:34:19 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/01 04:35:02 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/03 00:25:46 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+
 int	is_sorted(t_argus *argus, int s)
 {
 	int	i;
