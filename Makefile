@@ -1,10 +1,10 @@
 CC = cc
 
-CFLAGS = -Wall #-Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = push_swap
 
-SRCS = push_swap.c ft_strjoin.c ft_split.c init.c helper_func.c sorts.c instruc_a.c helpme.c instruc_b.c
+SRCS = push_swap.c ft_strjoin.c ft_split.c init.c helper_func.c sorts.c instruc_a.c helpme.c instruc_b.c sorting_stacks.c
 
 OBJ = $(SRCS:.c=.o)
 
