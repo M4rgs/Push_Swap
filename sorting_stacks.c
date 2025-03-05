@@ -6,11 +6,64 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 04:45:01 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/05 22:33:26 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/05 23:26:03 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_reverse_sorted(int *stack, int s)
+{
+	int	i;
+
+	i = 1;
+	while (i < s)
+	{
+		if (stack[i - 1] < stack[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	check_push(t_argus *argus, int s, int f)
+
+{
+	if (f == 0)
+		pa(argus);
+	else if (f == 1)
+		pb(argus);
+	s--;
+	return (s);
+}
+
+int	sort_three_b(t_argus *argus, int s)
+{
+	if (s == 1)
+		pa(argus);
+	else if (s == 2)
+	{
+		if (argus->stack_b[0] < argus->stack_b[1])
+			sb(argus);
+		while (s--)
+			pa(argus);
+	}
+	else if (s == 3)
+	{
+		while (s != 0)
+		{
+			if (s == 1 && argus->stack_a[0] > argus->stack_a[1])
+				sa(argus);
+			else if (s == 1
+				|| (s >= 2 && argus->stack_b[0] > argus->stack_b[1])
+				|| (s == 3 && argus->stack_b[0] > argus->stack_b[2]))
+				s = check_push(argus, s, 0);
+			else
+				sb(argus);
+		}
+	}
+	return (0);
+}
 
 int	sorting_b(t_argus *argus, int s)
 {
@@ -19,17 +72,27 @@ int	sorting_b(t_argus *argus, int s)
 
 	c = 0;
 	len = s;
-	if (is_sorted_b(argus, s))
-		return (1);
-	get_median(argus->stack_b, argus, s);
-	while (s != (len / 2) + len % 2)
+	if (check_reverse_sorted(argus->stack_b, s))
 	{
-		if (argus->stack_b[0] < argus->median && s--)
+		while (s--)
+			pa(argus);
+	}
+	if (s <= 3)
+		return (sort_three_b(argus, s), 1);
+	get_median(argus->stack_b, argus, s);
+	while (s != len / 2)
+	{
+		if (argus->stack_b[0] >= argus->median && s--)
 			pa(argus);
 		else
 			(rb(argus), c++);
 	}
+	while (len / 2 != argus->b_len && c--)
+		rrb(argus);
+	return (sorting_a(argus, (len / 2) + (len % 2))
+		&& sorting_b(argus, len / 2));
 }
+
 int	sorting_a(t_argus *argus, int s)
 {
 	int	len;
@@ -37,11 +100,11 @@ int	sorting_a(t_argus *argus, int s)
 
 	c = 0;
 	len = s;
-	if (is_sorted(argus, s))
+	if (is_sorted(argus->stack_a, s))
 		return (1);
 	if (s <= 3)
 	{
-		three_sort(argus);
+		two_or_three_sort(argus, s);
 		return (1);
 	}
 	get_median(argus->stack_a, argus, s);
@@ -54,5 +117,6 @@ int	sorting_a(t_argus *argus, int s)
 	}
 	while (len / 2 + len % 2 != argus->a_len && c--)
 		rra(argus);
-	return (sorting_a(argus, (len / 2) + (len % 2)) && sorting_a(argus, len / 2));
+	return (sorting_a(argus, (len / 2) + (len % 2))
+		&& sorting_b(argus, len / 2));
 }

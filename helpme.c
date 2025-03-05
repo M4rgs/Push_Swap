@@ -6,20 +6,20 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 01:34:19 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/05 22:30:24 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/05 23:23:44 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_argus *argus, int s)
+int	is_sorted(int *arr, int s)
 {
 	int	i;
 
 	i = 1;
 	while (i < s)
 	{
-		if (argus->stack_a[i - 1] > argus->stack_a[i])
+		if (arr[i - 1] > arr[i])
 			return (0);
 		i++;
 	}
@@ -62,7 +62,7 @@ void	bubble_sort(int arr[], int n)
 	}
 }
 
-int	get_median(int *stick , t_argus *argus, int s)
+int	get_median(int *stick, t_argus *argus, int s)
 {
 	int	*tmp;
 	int	i;

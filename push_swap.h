@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:49:13 by taha              #+#    #+#             */
-/*   Updated: 2025/03/05 22:30:33 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/05 23:24:11 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,15 @@ int		s_check_repeat(t_argus *argus);
 void	ft_free_argus(t_argus *argus);
 char	*ft_strjoin(char *s1, char *s2);
 void	start_sorting(t_argus *argus);
-int		is_sorted(t_argus *argus, int s);
-int		get_median(int *stick , t_argus *argus, int s);
+int		is_sorted(int *arr, int s);
+int		get_median(int *stick, t_argus *argus, int s);
 int		push(t_argus *argus, int s, int fl);
 void	two_sort(t_argus *argus, int s);
 void	three_sort(t_argus *argus);
 void	two_or_three_sort(t_argus *argus, int s);
 void	five_sort(t_argus *argus, int s);
 int		sorting_a(t_argus *argus, int s);
+int		sorting_b(t_argus *argus, int s);
 void	sa(t_argus *argus);
 void	ra(t_argus *argus);
 void	rra(t_argus *argus);

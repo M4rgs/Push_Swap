@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 04:49:24 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/05 02:19:56 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/05 22:52:11 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	two_or_three_sort(t_argus *argus, int s)
 		three_sort(argus);
 	else
 	{
-		while (s != 3 || !is_sorted(argus, s))
+		while (s != 3 || !is_sorted(argus->stack_a, s))
 		{
 			if (s == 3 && argus->stack_a[0] > argus->stack_a[1])
 				sa(argus);
@@ -82,9 +82,9 @@ void	five_sort(t_argus *argus, int s)
 
 	j = s / 2;
 	i = 0;
-	if (is_sorted(argus, s))
+	if (is_sorted(argus->stack_a, s))
 		return ;
-	get_median(argus, s);
+	get_median(argus->stack_a, argus, s);
 	while (j != 0)
 	{
 		if (argus->stack_a[0] < argus->median && j--)
