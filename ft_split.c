@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 00:22:33 by taha              #+#    #+#             */
-/*   Updated: 2025/02/16 00:54:11 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/05 19:55:52 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char	*allo_words(const char *s, char c)
 	{
 		len++;
 	}
-	result = (char *)malloc(sizeof(char) * (len +1));
+	result = (char *)malloc(sizeof(char) * (len + 1));
 	if (!result)
 		return (NULL);
 	len = 0;

@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 01:34:19 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/03 00:25:46 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/05 22:30:24 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	bubble_sort(int arr[], int n)
 	}
 }
 
-int	get_median(t_argus *argus, int s)
+int	get_median(int *stick , t_argus *argus, int s)
 {
 	int	*tmp;
 	int	i;
@@ -78,7 +78,7 @@ int	get_median(t_argus *argus, int s)
 	i = 0;
 	j = 0;
 	while (i < s)
-		tmp[j++] = argus->stack_a[i++];
+		tmp[j++] = stick[i++];
 	bubble_sort(tmp, s);
 	argus->median = tmp[s / 2];
 	free(tmp);
