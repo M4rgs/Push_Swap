@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 04:45:01 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/05 23:26:03 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/05 23:31:33 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_reverse_sorted(int *stack, int s)
 	return (1);
 }
 
-int	check_push(t_argus *argus, int s, int f)
+int	push_push(t_argus *argus, int s, int f)
 
 {
 	if (f == 0)
@@ -35,34 +35,6 @@ int	check_push(t_argus *argus, int s, int f)
 		pb(argus);
 	s--;
 	return (s);
-}
-
-int	sort_three_b(t_argus *argus, int s)
-{
-	if (s == 1)
-		pa(argus);
-	else if (s == 2)
-	{
-		if (argus->stack_b[0] < argus->stack_b[1])
-			sb(argus);
-		while (s--)
-			pa(argus);
-	}
-	else if (s == 3)
-	{
-		while (s != 0)
-		{
-			if (s == 1 && argus->stack_a[0] > argus->stack_a[1])
-				sa(argus);
-			else if (s == 1
-				|| (s >= 2 && argus->stack_b[0] > argus->stack_b[1])
-				|| (s == 3 && argus->stack_b[0] > argus->stack_b[2]))
-				s = check_push(argus, s, 0);
-			else
-				sb(argus);
-		}
-	}
-	return (0);
 }
 
 int	sorting_b(t_argus *argus, int s)

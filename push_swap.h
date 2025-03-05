@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 23:49:13 by taha              #+#    #+#             */
-/*   Updated: 2025/03/05 23:24:11 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/05 23:27:58 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int		push(t_argus *argus, int s, int fl);
 void	two_sort(t_argus *argus, int s);
 void	three_sort(t_argus *argus);
 void	two_or_three_sort(t_argus *argus, int s);
+int		sort_three_b(t_argus *argus, int s);
 void	five_sort(t_argus *argus, int s);
 int		sorting_a(t_argus *argus, int s);
 int		sorting_b(t_argus *argus, int s);
@@ -53,4 +54,5 @@ void	sb(t_argus *argus);
 void	rb(t_argus *argus);
 void	rrb(t_argus *argus);
 void	pb(t_argus *argus);
+int		push_push(t_argus *argus, int s, int f);
 #endif
