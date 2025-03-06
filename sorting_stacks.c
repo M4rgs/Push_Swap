@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:31:17 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/06 02:31:27 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/06 03:49:28 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,9 @@ int	check_reverse_sorted(int *stack, int s)
 	return (1);
 }
 
-int	push_push(t_argus *argus, int s, int f)
-
+int	push_push(t_argus *argus, int s)
 {
-	if (f == 0)
-		pa(argus);
-	else if (f == 1)
-		pb(argus);
+	pa(argus);
 	s--;
 	return (s);
 }

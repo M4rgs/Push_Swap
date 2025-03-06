@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:31:23 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/06 02:31:25 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/06 03:49:32 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	sort_three_b(t_argus *argus, int s)
 			else if (s == 1
 				|| (s >= 2 && argus->stack_b[0] > argus->stack_b[1])
 				|| (s == 3 && argus->stack_b[0] > argus->stack_b[2]))
-				s = push_push(argus, s, 0);
+				s = push_push(argus, s);
 			else
 				sb(argus);
 		}

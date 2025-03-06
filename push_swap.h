@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:31:12 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/06 02:31:28 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/06 03:50:05 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ void	sb(t_argus *argus);
 void	rb(t_argus *argus);
 void	rrb(t_argus *argus);
 void	pb(t_argus *argus);
-int		push_push(t_argus *argus, int s, int f);
+int		push_push(t_argus *argus, int s);
 #endif
