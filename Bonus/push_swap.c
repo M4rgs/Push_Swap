@@ -6,11 +6,12 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:31:08 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/06 02:31:29 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/07 03:45:41 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <fcntl.h>
 
 static void	init_strct(t_argus *argus)
 {
@@ -18,6 +19,7 @@ static void	init_strct(t_argus *argus)
 	argus->b_len = 0;
 	argus->argus = NULL;
 	argus->s = NULL;
+	argus->instructs = NULL;
 	argus->stack_a = NULL;
 	argus->stack_b = NULL;
 	argus->median = 0;
@@ -78,7 +80,6 @@ int	main(int ac, char **av)
 		if (!argus.argus)
 			return (ft_putstr_fd("Error\n", 2), ft_free_argus(&argus), 1);
 		init(&argus);
-		start_sorting(&argus);
-		ft_free_argus(&argus);
+		ft_checker(&argus);
 	}
 }
