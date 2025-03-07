@@ -6,20 +6,23 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:31:00 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/06 02:36:53 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/07 20:40:19 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	sa(t_argus *argus)
 {
 	int	tmp;
 
-	tmp = argus->stack_a[0];
-	argus->stack_a[0] = argus->stack_a[1];
-	argus->stack_a[1] = tmp;
-	ft_putstr_fd("sa\n", 1);
+	if (argus->a_len > 1)
+	{
+		tmp = argus->stack_a[0];
+		argus->stack_a[0] = argus->stack_a[1];
+		argus->stack_a[1] = tmp;
+		ft_putstr_fd("sa\n", 1);
+	}
 }
 
 void	ra(t_argus *argus)
@@ -27,18 +30,15 @@ void	ra(t_argus *argus)
 	int	i;
 	int	f;
 
-	if (argus->a_len > 1)
+	i = 0;
+	f = argus->stack_a[0];
+	while (i < argus->a_len - 1)
 	{
-		i = 0;
-		f = argus->stack_a[0];
-		while (i < argus->a_len - 1)
-		{
-			argus->stack_a[i] = argus->stack_a[i + 1];
-			i++;
-		}
-		argus->stack_a[argus->a_len - 1] = f;
-		ft_putstr_fd("ra\n", 1);
+		argus->stack_a[i] = argus->stack_a[i + 1];
+		i++;
 	}
+	argus->stack_a[i] = f;
+	ft_putstr_fd("ra\n", 1);
 }
 
 void	rra(t_argus *argus)
@@ -74,7 +74,7 @@ void	pa(t_argus *argus)
 			argus->stack_b[i] = argus->stack_b[i + 1];
 			i++;
 		}
-		i = argus->a_len - 1;
+		i = argus->a_len;
 		while (i > 0)
 		{
 			argus->stack_a[i] = argus->stack_a[i - 1];

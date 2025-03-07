@@ -6,13 +6,34 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 03:41:47 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/07 04:19:12 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/07 20:41:53 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	get_instruct(t_argus *argus)
+static void	check_valid_inst(t_argus *argus, char *p)
+{
+	if (!p || *p == '\n')
+	{
+		ft_free_argus(argus);
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
+	if (ft_strncmp(p, "rra\n", 4) && ft_strncmp(p, "ra\n", 3)
+		&& ft_strncmp(p, "rrb\n", 4) && ft_strncmp(p, "rb\n", 3)
+		&& ft_strncmp(p, "sa\n", 3) && ft_strncmp(p, "sb\n", 3)
+		&& ft_strncmp(p, "pa\n", 3) && ft_strncmp(p, "pb\n", 3)
+		&& ft_strncmp(p, "ss\n", 3) && ft_strncmp(p, "rr\n", 3)
+		&& ft_strncmp(p, "rrr\n", 4))
+	{
+		ft_free_argus(argus);
+		ft_putstr_fd("Error\n", 2);
+		exit(1);
+	}
+}
+
+static void	get_instruct(t_argus *argus)
 {
 	char	*lines;
 	char	*p;
@@ -27,59 +48,56 @@ void	get_instruct(t_argus *argus)
 	}
 	while (lines)
 	{
-		if (*lines == '\n')
-		{
-			ft_free_argus(argus);
-			ft_putstr_fd("Error\n", 2);
-			exit(1);
-		}
+		check_valid_inst(argus, lines);
 		p = ft_strjoin(p, lines);
 		free(lines);
 		lines = get_next_line(0);
 	}
-	argus->instructs = ft_split(p, '\n');
-}
-
-int	ft_alebhh(char *p, char *s2)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (p[i] && s2[j])
-	{
-		if (p[i] != s2[j])
-			return (0);
-		i++;
-		j++;
-	}
-	return (1);
-}
-
-void	execute_instructs(char *s, t_argus *argus)
-{
-	if (ft_alebhh(s, "sa"))
-		sa(argus);
-	else if (ft_alebhh(s, "ra"))
-		ra(argus);
-	else if (ft_alebhh(s, "rra"))
-		rra(argus);
-	else if (ft_alebhh(s, "pa"))
-		pa(argus);
-	else if (ft_alebhh(s, "sb"))
-		sb(argus);
-	else if (ft_alebhh(s, "rb"))
-		rb(argus);
-	else if (ft_alebhh(s, "rrb"))
-		rrb(argus);
-	else if (ft_alebhh(s, "pb"))
-		pb(argus);
-	else
+	argus->instructs = ft_split(argus, p, '\n');
+	if (!argus->instructs)
 	{
 		ft_free_argus(argus);
-		printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		exit(1);
+	}
+}
+
+static void	finish_execute(t_argus *argus, int i)
+{
+	if (!ft_strncmp(argus->instructs[i], "rr", 2))
+		rr(argus);
+	if (!ft_strncmp(argus->instructs[i], "sa", 2))
+		sa(argus);
+	else if (!ft_strncmp(argus->instructs[i], "sb", 2))
+		sb(argus);
+	else if (!ft_strncmp(argus->instructs[i], "ss", 2))
+		ss(argus);
+	else if (!ft_strncmp(argus->instructs[i], "pa", 2))
+		pa(argus);
+	else if (!ft_strncmp(argus->instructs[i], "pb", 2))
+		pb(argus);
+}
+
+static void	execute_instruct(t_argus *argus)
+{
+	int	i;
+
+	i = 0;
+	while (i < argus->howmany)
+	{
+		if (!ft_strncmp(argus->instructs[i], "rra", 3))
+			rra(argus);
+		else if (!ft_strncmp(argus->instructs[i], "rrb", 3))
+			rrb(argus);
+		else if (!ft_strncmp(argus->instructs[i], "rrr", 3))
+			rrr(argus);
+		else if (!ft_strncmp(argus->instructs[i], "ra", 2))
+			ra(argus);
+		else if (!ft_strncmp(argus->instructs[i], "rb", 2))
+			rb(argus);
+		else
+			finish_execute(argus, i);
+		i++;
 	}
 }
 
@@ -89,16 +107,10 @@ void	ft_checker(t_argus *argus)
 
 	i = 0;
 	get_instruct(argus);
-	while (argus->instructs[i])
-	{
-		execute_instructs(argus->instructs[i], argus);
-		i++;
-	}
+	execute_instruct(argus);
 	if (is_sorted(argus->stack_a, argus->a_len) && argus->b_len == 0)
-	{
-		printf("OK\n");
-	}
+		ft_putstr_fd("OK\n", 1);
 	else
-		printf("KO\n");
+		ft_putstr_fd("KO\n", 1);
 	ft_free_argus(argus);
 }

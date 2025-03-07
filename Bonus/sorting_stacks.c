@@ -6,11 +6,11 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:31:17 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/06 03:49:28 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/07 20:40:56 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	check_reverse_sorted(int *stack, int s)
 {

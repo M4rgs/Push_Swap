@@ -6,11 +6,11 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 01:34:19 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/05 23:23:44 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/07 20:40:15 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	is_sorted(int *arr, int s)
 {

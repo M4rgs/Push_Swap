@@ -6,11 +6,11 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:30:36 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/06 02:31:41 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/07 20:39:57 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 static size_t	count_words(const char *s, char c)
 {
@@ -70,22 +70,21 @@ static char	**ft_free(char **words, size_t index)
 	return (NULL);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(t_argus *argus, const char *s, char c)
 {
 	char	**result;
-	size_t	i;
-	size_t	j;
-	size_t	count;
+	int		i;
+	int		j;
 
 	if (!s)
 		return (NULL);
-	count = count_words(s, c);
-	result = (char **)malloc(sizeof(char *) * (count + 1));
+	argus->howmany = count_words(s, c);
+	result = (char **)malloc(sizeof(char *) * (argus->howmany + 1));
 	if (!result)
 		return (NULL);
 	i = 0;
 	j = -1;
-	while (++j < count)
+	while (++j < argus->howmany)
 	{
 		while (s[i] && s[i] == c)
 			i++;
@@ -95,6 +94,6 @@ char	**ft_split(const char *s, char c)
 		while (s[i] && s[i] != c)
 			i++;
 	}
-	result[count] = NULL;
+	result[argus->howmany] = NULL;
 	return (result);
 }

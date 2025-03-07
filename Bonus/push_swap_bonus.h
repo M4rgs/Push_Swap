@@ -6,16 +6,15 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:31:12 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/07 03:45:53 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/07 20:40:48 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include "get_next_line/get_next_line.h"
 
 typedef struct s_argus
@@ -26,11 +25,12 @@ typedef struct s_argus
 	char	*s;
 	int		median;
 	char	**instructs;
+	int		howmany;
 	int		*stack_a;
 	int		*stack_b;
 }	t_argus;
 
-char	**ft_split(const char *s, char c);
+char	**ft_split(t_argus *argus, const char *s, char c);
 void	ft_putstr_fd(char *s, int fd);
 int		ft_atoi(char *s, t_argus *argus);
 void	s_convert(t_argus *argus);
@@ -56,6 +56,10 @@ void	sb(t_argus *argus);
 void	rb(t_argus *argus);
 void	rrb(t_argus *argus);
 void	pb(t_argus *argus);
+void	rr(t_argus *argus);
+void	rrr(t_argus *argus);
+void	ss(t_argus *argus);
 int		push_push(t_argus *argus, int s);
 void	ft_checker(t_argus *argus);
+int		ft_strncmp(char *s1, char *s2, unsigned int n);
 #endif

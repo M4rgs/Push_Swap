@@ -6,12 +6,11 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:30:46 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/06 02:31:38 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/07 20:40:06 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include <string.h>
+#include "push_swap_bonus.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
