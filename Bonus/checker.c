@@ -6,17 +6,19 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 03:41:47 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/07 20:41:53 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/07 23:23:31 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-static void	check_valid_inst(t_argus *argus, char *p)
+static void	check_valid_inst(t_argus *argus, char *p, char *tmp)
 {
 	if (!p || *p == '\n')
 	{
 		ft_free_argus(argus);
+		free(p);
+		free(tmp);
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
@@ -28,6 +30,8 @@ static void	check_valid_inst(t_argus *argus, char *p)
 		&& ft_strncmp(p, "rrr\n", 4))
 	{
 		ft_free_argus(argus);
+		free(p);
+		free(tmp);
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
@@ -48,7 +52,7 @@ static void	get_instruct(t_argus *argus)
 	}
 	while (lines)
 	{
-		check_valid_inst(argus, lines);
+		check_valid_inst(argus, lines, p);
 		p = ft_strjoin(p, lines);
 		free(lines);
 		lines = get_next_line(0);

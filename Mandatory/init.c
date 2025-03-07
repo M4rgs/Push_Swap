@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:30:56 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/06 02:31:35 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/07 23:36:28 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,6 @@ void	s_convert(t_argus *argus)
 	while (argus->argus[i])
 		i++;
 	argus->a_len = i;
-	if (argus->a_len <= 1)
-	{
-		ft_putstr_fd("Error\n", 2);
-		ft_free_argus(argus);
-		exit(1);
-	}
 	argus->stack_a = (int *)malloc(sizeof(int) * i);
 	argus->stack_b = (int *)malloc(sizeof(int) * i);
 	if (!argus->stack_a || !argus->stack_b)

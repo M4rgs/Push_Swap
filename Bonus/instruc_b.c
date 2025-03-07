@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:31:04 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/07 20:40:21 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/07 23:39:53 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	sb(t_argus *argus)
 		tmp = argus->stack_b[0];
 		argus->stack_b[0] = argus->stack_b[1];
 		argus->stack_b[1] = tmp;
-		ft_putstr_fd("sb\n", 1);
 	}
 }
 
@@ -38,7 +37,6 @@ void	rb(t_argus *argus)
 		i++;
 	}
 	argus->stack_b[i] = f;
-	ft_putstr_fd("rb\n", 1);
 }
 
 void	rrb(t_argus *argus)
@@ -56,7 +54,6 @@ void	rrb(t_argus *argus)
 			i--;
 		}
 		argus->stack_b[0] = l;
-		ft_putstr_fd("rrb\n", 1);
 	}
 }
 
@@ -81,7 +78,6 @@ void	pb(t_argus *argus)
 			i--;
 		}
 		argus->stack_b[0] = t;
-		ft_putstr_fd("pb\n", 1);
 		argus->b_len += 1;
 		argus->a_len -= 1;
 	}
