@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 20:23:49 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/07 20:40:01 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/08 23:33:55 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	unsigned int	i;
 
 	i = 0;
+	if (!s1)
+		return (0);
 	while (s1[i] == s2[i] && s1[i] & s2[i] && i < n)
 		i++;
 	if (i == n)
