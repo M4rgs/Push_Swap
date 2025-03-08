@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:31:08 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/08 19:43:46 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/08 22:36:57 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	init_strct(t_argus *argus)
 	argus->argus = NULL;
 	argus->s = NULL;
 	argus->stack_a = NULL;
+	argus->instructs = NULL;
 	argus->stack_b = NULL;
 	argus->median = 0;
 }

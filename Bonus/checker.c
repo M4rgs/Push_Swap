@@ -6,34 +6,24 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 03:41:47 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/08 20:03:57 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/08 22:41:48 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-static void	check_valid_inst(t_argus *argus, char *p, char *tmp, char *lines)
+static void	check_valid_inst(t_argus *argus, char *p, char *tmp)
 {
-	if (!p || *p == '\n')
+	if ((ft_strncmp(p, "rra\n", 4) && ft_strncmp(p, "ra\n", 3)
+			&& ft_strncmp(p, "rrb\n", 4) && ft_strncmp(p, "rb\n", 3)
+			&& ft_strncmp(p, "sa\n", 3) && ft_strncmp(p, "sb\n", 3)
+			&& ft_strncmp(p, "pa\n", 3) && ft_strncmp(p, "pb\n", 3)
+			&& ft_strncmp(p, "ss\n", 3) && ft_strncmp(p, "rr\n", 3)
+			&& ft_strncmp(p, "rrr\n", 4)) || (!p || *p == '\n'))
 	{
 		ft_free_argus(argus);
 		free(p);
 		free(tmp);
-		free(lines);
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
-	if (ft_strncmp(p, "rra\n", 4) && ft_strncmp(p, "ra\n", 3)
-		&& ft_strncmp(p, "rrb\n", 4) && ft_strncmp(p, "rb\n", 3)
-		&& ft_strncmp(p, "sa\n", 3) && ft_strncmp(p, "sb\n", 3)
-		&& ft_strncmp(p, "pa\n", 3) && ft_strncmp(p, "pb\n", 3)
-		&& ft_strncmp(p, "ss\n", 3) && ft_strncmp(p, "rr\n", 3)
-		&& ft_strncmp(p, "rrr\n", 4))
-	{
-		ft_free_argus(argus);
-		free(p);
-		free(tmp);
-		free(lines);
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
@@ -52,19 +42,13 @@ static void	get_instruct(t_argus *argus)
 		lines = get_next_line(0);
 		if (!lines)
 			break ;
-		check_valid_inst(argus, lines, p, lines);
+		check_valid_inst(argus, lines, p);
 		tmp = ft_strjoin(p, lines);
 		p = tmp;
 		free(lines);
 	}
 	argus->instructs = ft_split(argus, p, '\n');
 	free(p);
-	if (!argus->instructs)
-	{
-		ft_free_argus(argus);
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
 }
 
 static void	finish_execute(t_argus *argus, int i)
@@ -88,6 +72,8 @@ static void	execute_instruct(t_argus *argus)
 	int	i;
 
 	i = 0;
+	if (!argus->instructs)
+		return ;
 	while (i < argus->howmany)
 	{
 		if (!ft_strncmp(argus->instructs[i], "rra", 3))

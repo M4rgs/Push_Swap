@@ -9,7 +9,7 @@ CC = cc
 HEADER = Mandatory/push_swap.h
 HEADER_BONUS = Bonus/push_swap_bonus.h Bonus/get_next_line/get_next_line.h
 
-CFLAGS = -Wall #-Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 OBJ = $(SRCS:.c=.o)
 OBJ_BONUS = $(SRCS_BONUS:.c=.o)
