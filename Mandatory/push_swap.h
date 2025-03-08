@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:31:12 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/06 03:55:06 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/08 02:38:16 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ char	*ft_strjoin(char *s1, char *s2);
 void	start_sorting(t_argus *argus);
 int		is_sorted(int *arr, int s);
 int		get_median(int *stick, t_argus *argus, int s);
-int		push(t_argus *argus, int s, int fl);
 void	two_sort(t_argus *argus, int s);
 void	three_sort(t_argus *argus);
 void	two_or_three_sort(t_argus *argus, int s);
@@ -54,5 +53,6 @@ void	sb(t_argus *argus);
 void	rb(t_argus *argus);
 void	rrb(t_argus *argus);
 void	pb(t_argus *argus);
-int		push_push(t_argus *argus, int s);
+int		push_push_b(t_argus *argus, int s);
+int		push_push_a(t_argus *argus, int s);
 #endif

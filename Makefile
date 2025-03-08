@@ -7,7 +7,7 @@ SRCS_BONUS = Bonus/push_swap.c Bonus/ft_strjoin.c Bonus/ft_split.c Bonus/init.c 
 CC = cc
 
 HEADER = Mandatory/push_swap.h
-HEADER_BONUS = Bonus/push_swap.h
+HEADER_BONUS = Bonus/push_swap_bonus.h Bonus/get_next_line/get_next_line.h
 
 CFLAGS = -Wall #-Wextra -Werror
 

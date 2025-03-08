@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 01:34:19 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/07 20:40:15 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/08 02:35:11 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ int	is_sorted(int *arr, int s)
 	return (1);
 }
 
-int	push(t_argus *argus, int s, int fl)
+int	push_push_b(t_argus *argus, int s)
 {
-	if (fl == 1)
-		pb(argus);
+	pb(argus);
 	s -= 1;
 	return (s);
 }
