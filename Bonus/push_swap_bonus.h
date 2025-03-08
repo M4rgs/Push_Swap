@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:31:12 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/08 02:38:29 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/08 04:19:23 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,11 @@ typedef struct s_argus
 	char	**argus;
 	char	*s;
 	int		median;
-	char	**instructs;
-	int		howmany;
 	int		*stack_a;
 	int		*stack_b;
 }	t_argus;
 
-char	**ft_split(t_argus *argus, const char *s, char c);
+char	**ft_split(const char *s, char c);
 void	ft_putstr_fd(char *s, int fd);
 int		ft_atoi(char *s, t_argus *argus);
 void	s_convert(t_argus *argus);

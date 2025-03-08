@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:31:08 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/07 20:40:26 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/08 04:24:35 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static void	init_strct(t_argus *argus)
 	argus->b_len = 0;
 	argus->argus = NULL;
 	argus->s = NULL;
-	argus->instructs = NULL;
 	argus->stack_a = NULL;
 	argus->stack_b = NULL;
 	argus->median = 0;
@@ -75,10 +74,11 @@ int	main(int ac, char **av)
 			check_args_and_ini_argus(av[i], &argus);
 			i++;
 		}
-		argus.argus = ft_split(&argus, argus.s, ' ');
+		argus.argus = ft_split(argus.s, ' ');
 		if (!argus.argus)
 			return (ft_putstr_fd("Error\n", 2), ft_free_argus(&argus), 1);
 		init(&argus);
 		ft_checker(&argus);
+		ft_free_argus(&argus);
 	}
 }

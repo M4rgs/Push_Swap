@@ -6,7 +6,7 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:30:36 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/07 20:39:57 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/08 04:17:56 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,22 @@ static char	**ft_free(char **words, size_t index)
 	return (NULL);
 }
 
-char	**ft_split(t_argus *argus, const char *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	char	**result;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
+	size_t	count;
 
 	if (!s)
 		return (NULL);
-	argus->howmany = count_words(s, c);
-	result = (char **)malloc(sizeof(char *) * (argus->howmany + 1));
+	count = count_words(s, c);
+	result = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!result)
 		return (NULL);
 	i = 0;
 	j = -1;
-	while (++j < argus->howmany)
+	while (++j < count)
 	{
 		while (s[i] && s[i] == c)
 			i++;
@@ -94,6 +95,6 @@ char	**ft_split(t_argus *argus, const char *s, char c)
 		while (s[i] && s[i] != c)
 			i++;
 	}
-	result[argus->howmany] = NULL;
+	result[count] = NULL;
 	return (result);
 }
