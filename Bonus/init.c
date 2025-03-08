@@ -6,11 +6,29 @@
 /*   By: tamounir <tamounir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 02:30:56 by tamounir          #+#    #+#             */
-/*   Updated: 2025/03/08 04:29:41 by tamounir         ###   ########.fr       */
+/*   Updated: 2025/03/08 20:00:57 by tamounir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+
+static void	ft_free_instrucs(t_argus *argus)
+{
+	int	i;
+
+	i = 0;
+	if (argus->instructs)
+	{
+		while (argus->instructs[i])
+		{
+			free(argus->instructs[i]);
+			argus->instructs[i] = NULL;
+			i++;
+		}
+		free(argus->instructs);
+		argus->instructs = NULL;
+	}
+}
 
 void	ft_free_argus(t_argus *argus)
 {
@@ -33,6 +51,7 @@ void	ft_free_argus(t_argus *argus)
 		(free(argus->stack_a), argus->stack_a = NULL);
 	if (argus->s)
 		(free(argus->s), argus->s = NULL);
+	ft_free_instrucs(argus);
 }
 
 void	s_convert(t_argus *argus)
