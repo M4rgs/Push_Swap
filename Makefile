@@ -2,7 +2,7 @@ NAME = push_swap
 NAME_BONUS = checker
 
 SRCS = Mandatory/push_swap.c Mandatory/ft_strjoin.c Mandatory/ft_split.c Mandatory/init.c Mandatory/helper_func.c Mandatory/sorts.c Mandatory/instruc_a.c Mandatory/helpme.c Mandatory/instruc_b.c Mandatory/sorting_stacks.c
-SRCS_BONUS = Bonus/push_swap.c Bonus/ft_strjoin.c Bonus/ft_split.c Bonus/init.c Bonus/helper_func.c Bonus/instruc_a.c Bonus/helpme.c Bonus/instruc_b.c Bonus/add_instructs.c Bonus/get_next_line/get_next_line.c Bonus/get_next_line/get_next_line_utils.c Bonus/checker.c Bonus/ft_strncmp.c
+SRCS_BONUS = Bonus/push_swap_bonus.c Bonus/ft_strjoin_bonus.c Bonus/ft_split_bonus.c Bonus/init_bonus.c Bonus/helper_func_bonus.c Bonus/instruc_a_bonus.c Bonus/helpme_bonus.c Bonus/instruc_b_bonus.c Bonus/add_instructs_bonus.c Bonus/get_next_line/get_next_line.c Bonus/get_next_line/get_next_line_utils.c Bonus/checker_bonus.c Bonus/ft_strncmp_bonus.c
 
 CC = cc
 
